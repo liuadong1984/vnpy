@@ -331,6 +331,8 @@ class VtErrorData(VtBaseData):
         self.errorID = EMPTY_STRING             # 错误代码
         self.errorMsg = EMPTY_UNICODE           # 错误信息
         self.additionalInfo = EMPTY_UNICODE     # 补充信息
+        
+        self.errorTime = time.strftime('%X', time.localtime())    # 错误生成时间
 
 
 ########################################################################
@@ -353,7 +355,7 @@ class VtContractData(VtBaseData):
     #----------------------------------------------------------------------
     def __init__(self):
         """Constructor"""
-        super(VtBaseData, self).__init__()
+        super(VtContractData, self).__init__()
         
         self.symbol = EMPTY_STRING              # 代码
         self.exchange = EMPTY_STRING            # 交易所代码
@@ -409,7 +411,9 @@ class VtOrderReq(object):
         self.currency = EMPTY_STRING            # 合约货币
         self.expiry = EMPTY_STRING              # 到期日
         self.strikePrice = EMPTY_FLOAT          # 行权价
-        self.optionType = EMPTY_UNICODE         # 期权类型        
+        self.optionType = EMPTY_UNICODE         # 期权类型     
+        self.lastTradeDateOrContractMonth = EMPTY_STRING   # 合约月,IB专用
+        self.multiplier = EMPTY_STRING                     # 乘数,IB专用
         
 
 ########################################################################
